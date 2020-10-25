@@ -4,10 +4,8 @@ let status = document.getElementById("status");
 let loadTranscript = document.getElementById("load");
 let capsArr = [];
 
-chrome.storage.local.get(null, function(items){
-  console.log(items);
-})
 
+// retreive transcript from local storage if available
 new Promise(function(resolve, reject){
   chrome.tabs.query({active:true, currentWindow: true},
     function(tabs){
@@ -28,78 +26,14 @@ new Promise(function(resolve, reject){
   })
 }).then(
   function(result){
-    console.log(result.length);
     capsArr = result;
     disableLoadTranscript();
     activateForm();
-    chrome.runtime.sendMessage({type: "LOCAL_TRANS", message: "Got transcript from local storage", data: capsArr});
   },
   function(error){
     console.log(error)
   }
 );
-
-// function ytGrep(query){
-//   let ok = false;
-//   let t = 0;
-//   for(i=0; i<capsArr.length; ++i){
-//     if(capsArr[i][1].includes(query.toLowerCase())) {
-//        ok = true;
-//        t=capsArr[i][0];
-//        break;
-//     }
-//   }
-//   if(ok){
-//     player.seekTo(t);
-//     player.playVideo();
-//   }else{
-//     window.postMessage({type: "GREP", text: "No match found!"}, "*");
-//   }
-//   return;
-// }
-
-function injectScript(params) {
-  const code = '(' + function(query) {
-    let player = document.getElementById('movie_player');
-    let capsNode = document.getElementsByClassName('cue-group style-scope ytd-transcript-body-renderer')
-
-    let capsArr = []
-    for(i=0;i<capsNode.length; ++i){
-       let vals = capsNode[i].innerText.trim().replace(/\s{2,}/g, '\n').split('\n')
-       let t = vals[0].split(':')[0]*60 + parseInt(vals[0].split(':')[1])
-       vals[0] = t; vals[1]=vals[1].toLowerCase();
-       capsArr.push(vals)
-    }
-
-    if(!capsArr.length){
-      window.postMessage({type: "FROM_PAGE", text: "No transcript available!"}, "*");
-      return;
-    }
-
-    let ok = false;
-    let t = 0;
-    for(i=0; i<capsArr.length; ++i){
-        if(capsArr[i][1].includes(query.toLowerCase())) {
-           ok = true;
-           t=capsArr[i][0];
-           break;
-        }
-    }
-    if(ok){
-        player.seekTo(t);
-        player.playVideo();
-    }else{
-        window.postMessage({type: "FROM_PAGE", text: "No match found!"}, "*");
-    }
-    return;
-  } + ')(' + JSON.stringify(params.query) + ')';
-
-  // inject script to shared DOM
-  const script = document.createElement('script');
-  script.textContent = code;
-  (document.head || document.documentElement).appendChild(script);
-  script.remove();
-}
 
 // triggered on search
 form.onsubmit = function() {
@@ -107,15 +41,8 @@ form.onsubmit = function() {
   if(query === ""){
     return;
   }else{
-    // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    //   chrome.tabs.executeScript(
-    //     tabs[0].id,
-    //     {code: `(${injectScript})(${JSON.stringify({query: query}) })`},
-    //     // function (result) {
-    //     //   // console.log(result);
-    //     // }
-    //   );
-    // });
+    // search, setup controls
+    ytGrep(query);
   }
 };
 
@@ -141,7 +68,6 @@ chrome.runtime.onMessage.addListener(
         disableLoadTranscript();
         activateForm();
         capsArr = request.capsArr;
-        console.log('Got video transcript!');
         chrome.tabs.query({active:true, currentWindow: true}, function(tabs){
           chrome.tabs.get(tabs[0].id, function(tab){
             storeTranscriptLocal(capsArr, tab.id, tab.title);
@@ -188,5 +114,108 @@ function storeTranscriptLocal(capsArr, tabID, tabTitle){
   chrome.storage.local.set({[tabID]: {[key]: capsArr} }, function() {
     console.log('SAVED:', tabID, key);
   });
+}
+
+function sendTimeToPlayer(time){
+  chrome.tabs.query({active:true, currentWindow: true}, function(tabs){
+    chrome.tabs.sendMessage(tabs[0].id, {type: "PLAYER", action:"SEEK", time: time});
+  })
+}
+
+function sendActionToPlayer(action){
+  chrome.tabs.query({active:true, currentWindow: true}, function(tabs){
+    chrome.tabs.sendMessage(tabs[0].id, {type: "PLAYER", action:action});
+  })
+}
+
+function createControlsNode(data){
+  let controls = document.getElementById("controls");
+  controls.innerHTML = ""; // clear prev search
+
+  let ctlbtns = document.createElement("div");
+  let ctltxt = document.createElement("p");
+  let prev = document.createElement("p");
+  let next = document.createElement("p");
+  let media = document.createElement("p");
+  let ctlnum = document.createElement("p");
+
+  ctlnum.id = "ctlnum";
+
+  prev.id = "prev";
+  prev.innerText = "prev";
+  next.id = "next";
+  next.innerText = "next";
+  media.id = "media";
+  media.innerText = "pause";
+  ctlbtns.id = "ctlbtns"
+  ctlbtns.append(prev, media, next);
+
+  ctltxt.id = "ctltxt"
+
+  document.body.style.height = "250px";
+  controls.append(ctltxt, ctlbtns, ctlnum);
+}
+
+function makeCtlFunctional(data){
+  let prev = document.getElementById("prev");
+  let next = document.getElementById("next");
+  let media = document.getElementById("media");
+  let ctltxt = document.getElementById("ctltxt");
+  let ctlnum = document.getElementById("ctlnum");
+
+  let idx = 0;
+  prev.addEventListener("click", function(){
+    if(idx <= 0) return;
+    --idx;
+    ctltxt.innerText = data[idx][1];
+    ctlnum.innerText = `${idx+1}/${data.length}`
+    if(media.innerText === "play"){
+      media.innerText = "pause";
+    }
+    sendTimeToPlayer(data[idx][0]);
+  });
+  next.addEventListener("click", function(){
+    if(idx >= data.length - 1) return;
+    ++idx;
+    ctltxt.innerText = data[idx][1];
+    ctlnum.innerText = `${idx+1}/${data.length}`
+    if(media.innerText === "play"){
+      media.innerText = "pause";
+    }
+    sendTimeToPlayer(data[idx][0]);
+  });
+  media.addEventListener("click", function(){
+    if(media.innerText === "pause"){
+      media.innerText = "play"; // set symbol to play
+      sendActionToPlayer("PAUSE");
+    }else{
+      media.innerText = "pause"; // set symbol to pause
+      sendActionToPlayer("PLAY");
+    }
+  });
+
+  ctltxt.innerText = data[0][1];
+  ctlnum.innerText = `${idx+1}/${data.length}`
+  sendTimeToPlayer(data[idx][0]);
+}
+
+function ytGrep(query){
+  let results = []
+  query = query.toLowerCase();
+  for(i=0; i<capsArr.length; ++i){
+    if(new RegExp(`\\b${query}\\b`).test(capsArr[i][1].toLowerCase())) {
+      results.push(capsArr[i]);
+    }
+  }
+
+  if(results.length > 0){
+    status.innerText = "Match found!";
+    createControlsNode(results);
+    makeCtlFunctional(results);
+  }else{
+    status.innerText = "No match found!"
+    document.getElementById("controls").innerHTML = "";
+    document.body.style.height = "180px";
+  }
 }
 

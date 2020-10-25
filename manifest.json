@@ -16,7 +16,7 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "web_accessible_resources": ["getTranscript.js"],
+  "web_accessible_resources": ["getTranscript.js", "ytPlayer.js"],
   "content_scripts": [
    {
      "matches": ["https://www.youtube.com/watch*"],

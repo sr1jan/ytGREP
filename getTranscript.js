@@ -1,16 +1,16 @@
 (function(){
-  console.log('injected getTranscript!');
+  // console.log('injected getTranscript!');
 
   async function getTranscript() {
-    console.log('getTranscript ran!');
+    // console.log('getTranscript ran!');
 
     let more = await document.getElementsByClassName('dropdown-trigger style-scope ytd-menu-renderer')[0].getElementsByClassName('style-scope ytd-menu-renderer')[0]
     await more.click();
 
     let pop = await document.getElementsByClassName('style-scope ytd-menu-service-item-renderer')[5]
     // no transcript
-    if(pop === undefined){
-        console.log('No transcript! [1]');
+    if(pop === undefined || pop.innerText !== "Open transcript"){
+      await more.click();
         window.postMessage({type: "CAPS", text: "No transcript available!", capsArr: []}, "*");
         return;
     };
@@ -29,9 +29,8 @@
         break;
       }
       ++c;
-      if(c > 10){
+      if(c > 5){
           await close.click();
-          console.log('No transcript! [2]');
           window.postMessage({type: "CAPS", text: "No transcript available!", capsArr: []}, "*");
           return; // no transcript or very slow fetch
       }
@@ -44,11 +43,11 @@
     for(i=0;i<capsNode.length; ++i){
        let vals = capsNode[i].innerText.trim().replace(/\s{2,}/g, '\n').split('\n')
        let t = vals[0].split(':')[0]*60 + parseInt(vals[0].split(':')[1])
-       vals[0] = t; vals[1]=vals[1].toLowerCase();
+       vals[0] = t;
        capsArr.push(vals)
     }
 
-    console.log('Retrieved capsArray!');
+    // console.log('Retrieved capsArray!');
     window.postMessage({type: "CAPS", text: "Transcript available!", capsArr: capsArr}, "*");
   }
 
