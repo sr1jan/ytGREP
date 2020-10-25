@@ -4,11 +4,11 @@
 const default_rule = {
   conditions: [
     new chrome.declarativeContent.PageStateMatcher({
-      pageUrl: {hostEquals: 'www.youtube.com'},
+      pageUrl: {hostEquals: "www.youtube.com"},
       css: ["video"]
     })
   ],
-  actions: [new chrome.declarativeContent.ShowPageAction()]
+  actions: [new chrome.declarativeContent.ShowPageAction(), new chrome.declarativeContent.SetIcon({path: {'16': './assets/icons/ytGrep16.png', '24': './assets/icons/ytGrep24.png'}})]
 }
 
 chrome.runtime.onInstalled.addListener(function() {

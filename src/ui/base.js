@@ -39,10 +39,11 @@ new Promise(function(resolve, reject){
 form.onsubmit = function() {
   let query = form["search"].value;
   if(query === ""){
-    return;
+    return false;
   }else{
     // search, setup controls
     ytGrep(query);
+    return false;
   }
 };
 

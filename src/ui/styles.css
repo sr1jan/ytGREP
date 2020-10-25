@@ -1,5 +1,5 @@
 body {
-  background-color: #282828;
+  background-color: #181818;
   color: #FF0000;
   border: 2px solid #FF0000;
   align-items: center;
@@ -49,7 +49,7 @@ h1 {
   font-size: 8px;
   letter-spacing: 1px;
   padding: 3px 4px;
-  color: #282828;
+  color: #181818;
   background-color: #FF0000;
   cursor: pointer;
 }
@@ -85,18 +85,18 @@ fieldset {
 
 input[type=text] {
     padding:5px;
-    border: 1px solid #282828;
+    border: 1px solid #181818;
     cursor: no-drop;
 }
 
 input[type=text]:focus {
-    border-color:#282828;
+    border-color: #181818;
 }
 
 input[type=submit] {
     letter-spacing: 1px;
     padding:5px 7px;
-    background:#FF0000;
+    background: #FF0000;
     border:0 none;
     cursor: no-drop;
 }
