@@ -49,7 +49,7 @@ form.onsubmit = function() {
 // triggered on load transcript
 loadTranscript.onclick = function() {
   if(capsArr.length > 0) return;
-  let script = chrome.runtime.getURL('getTranscript.js');
+  let script = chrome.runtime.getURL('inject/getTranscript.js');
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
     chrome.tabs.executeScript(tabs[0].id, {
       code: "document.body.appendChild(document.createElement('script')).src = " + `'${script}'`

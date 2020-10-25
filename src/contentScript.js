@@ -38,7 +38,7 @@ chrome.runtime.onMessage.addListener(
 
 // inject ytPlayer into the webpage
 let script = document.createElement('script');
-script.src = chrome.runtime.getURL('ytPlayer.js');
+script.src = chrome.runtime.getURL('inject/ytPlayer.js');
 script.onload = function() {
     this.remove();
 };
