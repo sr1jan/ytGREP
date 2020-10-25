@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ytGREP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#282828" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>ytGREP</h1>
+    <p id="load">load transcript</p>
+      <form action="javascript:void(0);" method="post" id="searchForm">
+        <fieldset id="formFieldSet" disabled="disabled">
+          <input type="text" id="search" name="search" placeholder="Search..." autocomplete="off">
+          <input type="submit" id="submit">
+        </fieldset>
+      </form>
+    <p id="status">No transcript loaded!</p>
+    <script src="popup.js" defer async></script>
+  </body>
+</html>
