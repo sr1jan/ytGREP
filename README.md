@@ -17,14 +17,19 @@
 
 ## Screenshots
 
-- No transcript loaded
-  ![ytGREP:screenshot:notranscript](src/assets/images/1.png)
-
-- Transcript loaded
-  ![ytGREP:screenshot:transcript](src/assets/images/2.png)
-
-- Match found
-  ![ytGREP:screenshot:transcript](src/assets/images/3.png)
-
-- No Match found
-  ![ytGREP:screenshot:transcript](src/assets/images/4.png)
+<p align="center">
+  <img src="./src/assets/images/1.png" alt="ytGREP:Screenshot:notranscript">
+</p>
+<br>
+<p align="center">
+  <img src="./src/assets/images/2.png" alt="ytGREP:Screenshot:transcriptloaded">
+</p>
+<br>
+<p align="center">
+  <img src="./src/assets/images/3.png" alt="ytGREP:Screenshot:matchfound">
+</p>
+<br>
+<p align="center">
+  <img src="./src/assets/images/4.png" alt="ytGREP:Screenshot:nomatch">
+</p>
+<br>
