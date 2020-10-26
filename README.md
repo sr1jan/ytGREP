@@ -1,4 +1,4 @@
-<h1 align="center">ytGREP</h1>
+<h1 align="center" style="color:#FF0000;">ytGREP</h1>
 
 <p align="center">
   <img src="./src/assets/images/3.png" alt="ytGREP:Screenshot">
