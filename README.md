@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="./src/assets/images/3.png" alt="ytGREP:Screenshot">
-  <p>A simple chrome extension to search for words or sentences used in a youtube video.<p>
+  <p align="center">A simple chrome extension to search for words or sentences used in a youtube video.<p>
 </p>
 
 ## TODO
