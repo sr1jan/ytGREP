@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Search for words or sentences in youtube videos",
   "author": "Srijan Singh",
-  "homepage_url": "https://github.com/sr1jan",
+  "homepage_url": "https://github.com/sr1jan/ytGREP",
   "icons": {
     "16": "assets/icons/ytGrep16.png",
     "24": "assets/icons/ytGrep24.png",

@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   margin: 0 auto;
   position: relative;
-  height: 180px;
+  height: 190px;
   width: 280px;
   padding: 10px;
 }
@@ -17,6 +17,27 @@ body {
 h1 {
   font-size: 25px;
   margin: 10px 0;
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#github {
+  margin-top: 10px;
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+
+#github:hover {
+  opacity: 0.8;
 }
 
 #controls {
@@ -70,6 +91,8 @@ h1 {
 }
 
 #status {
+  letter-spacing: 1px;
+  font-size: 12px;
   margin-top: 20px;
 }
 

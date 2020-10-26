@@ -153,7 +153,7 @@ function createControlsNode(data){
 
   ctltxt.id = "ctltxt"
 
-  document.body.style.height = "250px";
+  document.body.style.height = "260px";
   controls.append(ctltxt, ctlbtns, ctlnum);
 }
 
@@ -216,7 +216,7 @@ function ytGrep(query){
   }else{
     status.innerText = "No match found!"
     document.getElementById("controls").innerHTML = "";
-    document.body.style.height = "180px";
+    document.body.style.height = "190px";
   }
 }
 
