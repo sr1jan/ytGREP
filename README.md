@@ -1,8 +1,9 @@
 # ytGREP
 
-![ytGREP:screenshot](src/assets/images/3.png)
-
-A simple chrome extension to search for words or sentences used in a youtube video.
+<p align="center">
+  <img src="./src/assets/images/3.png" alt="ytGREP:Screenshot">
+  A simple chrome extension to search for words or sentences used in a youtube video.
+</p>
 
 ## TODO
 
