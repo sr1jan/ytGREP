@@ -1,4 +1,4 @@
-# ytGREP
+<h1 align="center">ytGREP</h1>
 
 <p align="center">
   <img src="./src/assets/images/3.png" alt="ytGREP:Screenshot">
