@@ -16,7 +16,7 @@ body {
 
 h1 {
   font-size: 25px;
-  margin: 10px 0;
+  margin: 2px 0;
 }
 
 a {
@@ -24,19 +24,25 @@ a {
   text-decoration: none;
 }
 
-#footer {
+#info {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 0 0 5px;
 }
 
-#github {
-  margin-top: 10px;
+.bullet {
+  color: grey;
+  margin: 0 5px;
   font-size: 7px;
+}
+
+#github, #issue, #contact {
+  font-size: 8px;
   letter-spacing: 1px;
 }
 
-#github:hover {
+#github:hover, #issue:hover, #contact:hover {
   opacity: 0.8;
 }
 
@@ -44,7 +50,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 #ctltxt {

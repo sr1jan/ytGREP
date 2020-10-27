@@ -153,7 +153,7 @@ function createControlsNode(data){
 
   ctltxt.id = "ctltxt"
 
-  document.body.style.height = "260px";
+  document.body.style.height = "250px";
   controls.append(ctltxt, ctlbtns, ctlnum);
 }
 

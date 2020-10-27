@@ -2,12 +2,20 @@
 <html>
   <head>
     <title>ytGREP</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#181818" />
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <h1>ytGREP</h1>
+    <div id="info">
+      <p id="github"><a href="https://github.com/sr1jan/ytGREP" target="_blank">github</a></p>
+      <p class="bullet">&bull;</p>
+      <p id="issue"><a href="https://github.com/sr1jan/ytGREP/issues/new/choose" target="_blank">raise issue</a></p>
+      <p class="bullet">&bull;</p>
+      <p id="contact"><a href="https://twitter.com/sr1jann" target="_blank">contact</a></p>
+    </div>
     <p id="load">load transcript</p>
       <form method="post" id="searchForm">
         <fieldset id="formFieldSet" disabled="disabled">
@@ -17,9 +25,6 @@
       </form>
     <p id="status">No transcript loaded!</p>
     <div id="controls"></div>
-    <div id="footer">
-      <p id="github"><a href="https://github.com/sr1jan/ytGREP" target="_blank">github</a></p>
-    </div>
     <script src="base.js" defer async></script>
   </body>
 </html>
