@@ -8,6 +8,12 @@
     await more.click();
 
     let pop = await document.getElementsByClassName('style-scope ytd-menu-service-item-renderer')[5]
+
+    // if not signed in
+    if(pop === undefined){
+      pop = await document.getElementsByClassName('style-scope ytd-menu-service-item-renderer')[2]
+    }
+
     // no transcript
     if(pop === undefined || pop.innerText !== "Open transcript"){
       await more.click();

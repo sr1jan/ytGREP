@@ -1,7 +1,7 @@
 <h1 align="center" style="color:#FF0000;">ytGREP</h1>
 
 <p align="center">
-  <img src="./src/assets/images/3.png" alt="ytGREP:Screenshot">
+  <img src="./src/assets/images/promotional/1400x560.png" alt="ytGREP:promotional">
   <p align="center">A simple chrome extension to search for words or sentences used in a youtube video.<p>
 </p>
 
@@ -18,18 +18,18 @@
 ## Screenshots
 
 <p align="center">
-  <img src="./src/assets/images/1.png" alt="ytGREP:Screenshot:notranscript">
+  <img src="./src/assets/images/screenshots/1.png" alt="ytGREP:Screenshot:notranscript">
 </p>
 <br>
 <p align="center">
-  <img src="./src/assets/images/2.png" alt="ytGREP:Screenshot:transcriptloaded">
+  <img src="./src/assets/images/screenshots/2.png" alt="ytGREP:Screenshot:transcriptloaded">
 </p>
 <br>
 <p align="center">
-  <img src="./src/assets/images/3.png" alt="ytGREP:Screenshot:matchfound">
+  <img src="./src/assets/images/screenshots/3.png" alt="ytGREP:Screenshot:matchfound">
 </p>
 <br>
 <p align="center">
-  <img src="./src/assets/images/4.png" alt="ytGREP:Screenshot:nomatch">
+  <img src="./src/assets/images/screenshots/4.png" alt="ytGREP:Screenshot:nomatch">
 </p>
 <br>
