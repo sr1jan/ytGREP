@@ -18,18 +18,18 @@
 ## Screenshots
 
 <p align="center">
-  <img src="./src/assets/images/screenshots/1.png" alt="ytGREP:Screenshot:notranscript">
+  <img width="640" height="400" src="./src/assets/images/screenshots/1.png" alt="ytGREP:Screenshot:notranscript">
 </p>
 <br>
 <p align="center">
-  <img src="./src/assets/images/screenshots/2.png" alt="ytGREP:Screenshot:transcriptloaded">
+  <img width="640" height="400" src="./src/assets/images/screenshots/2.png" alt="ytGREP:Screenshot:transcriptloaded">
 </p>
 <br>
 <p align="center">
-  <img src="./src/assets/images/screenshots/3.png" alt="ytGREP:Screenshot:matchfound">
+  <img width="640" height="400" src="./src/assets/images/screenshots/3.png" alt="ytGREP:Screenshot:matchfound">
 </p>
 <br>
 <p align="center">
-  <img src="./src/assets/images/screenshots/4.png" alt="ytGREP:Screenshot:nomatch">
+  <img width="640" height="400" src="./src/assets/images/screenshots/4.png" alt="ytGREP:Screenshot:nomatch">
 </p>
 <br>
