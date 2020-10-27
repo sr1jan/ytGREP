@@ -1,5 +1,5 @@
 // init
-// console.log('ytGREP extension loaded!');
+console.log('ytGREP extension loaded!');
 
 // receive from webpage via window
 // transmit to extension via runtime

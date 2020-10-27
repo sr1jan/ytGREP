@@ -22,7 +22,11 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.tabs.onRemoved.addListener(function(tabId) {
   try {
     chrome.storage.local.remove(tabId.toString(), function(){
-      console.log("Removed:", tabId);
+      if(chrome.runtime.lastError === undefined){
+        console.log("Removed:", tabId);
+      }else{
+        console.log(chrome.runtime.lastError);
+      }
     });
   } catch (e){
     console.log(e);

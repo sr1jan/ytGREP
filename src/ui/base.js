@@ -1,6 +1,7 @@
 let form = document.getElementById("searchForm");
 let fieldSet = document.getElementById("formFieldSet");
 let status = document.getElementById("status");
+let loader = document.getElementById("loader");
 let loadTranscript = document.getElementById("load");
 let capsArr = [];
 
@@ -11,6 +12,7 @@ new Promise(function(resolve, reject){
     function(tabs){
       chrome.tabs.get(tabs[0].id, function(tab){
         chrome.storage.local.get(null, function(items){
+          console.log(items);
           let key = `${tab.title}`;
           try{
             let result = items[tab.id][key];
@@ -49,7 +51,8 @@ form.onsubmit = function() {
 
 // triggered on load transcript
 loadTranscript.onclick = function() {
-  if(capsArr.length > 0) return;
+  status.style.display = "none";
+  loader.style.display = "block";
   let script = chrome.runtime.getURL('inject/getTranscript.js');
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
     chrome.tabs.executeScript(tabs[0].id, {
@@ -61,8 +64,12 @@ loadTranscript.onclick = function() {
 // listening to content script
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.status !== "")
+    if (request.status !== ""){
+      loader.style.display = "none";
+      status.style.display = "block";
       status.innerText = request.status;
+    }
+
 
     if (request.type === "CAPS"){
       if(request.capsArr.length > 0){
@@ -153,7 +160,7 @@ function createControlsNode(data){
 
   ctltxt.id = "ctltxt"
 
-  document.body.style.height = "250px";
+  document.body.style.height = "260px";
   controls.append(ctltxt, ctlbtns, ctlnum);
 }
 
@@ -200,10 +207,11 @@ function makeCtlFunctional(data){
   sendTimeToPlayer(data[idx][0]);
 }
 
-function ytGrep(query){
+async function ytGrep(query){
   let results = []
   query = query.toLowerCase();
   for(i=0; i<capsArr.length; ++i){
+    if(capsArr[i][1] === undefined) continue;
     if(new RegExp(`\\b${query}\\b`).test(capsArr[i][1].toLowerCase())) {
       results.push(capsArr[i]);
     }
@@ -214,6 +222,8 @@ function ytGrep(query){
     createControlsNode(results);
     makeCtlFunctional(results);
   }else{
+    status.innerText = "";
+    await new Promise(r => setTimeout(r, 200));
     status.innerText = "No match found!"
     document.getElementById("controls").innerHTML = "";
     document.body.style.height = "190px";

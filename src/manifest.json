@@ -20,9 +20,9 @@
   "web_accessible_resources": ["inject/getTranscript.js", "inject/ytPlayer.js"],
   "content_scripts": [
    {
-     "matches": ["https://www.youtube.com/watch*"],
+     "matches": ["*://www.youtube.com/*"],
      "js": ["contentScript.js"],
-      "run_at": "document_idle"
+     "run_at": "document_idle"
    }
   ],
   "page_action": {
