@@ -80,8 +80,11 @@ a {
 }
 
 #ctltxt {
+  color: grey;
+  font-family: monospace;
   font-size: 10px;
-  font-size: 3vw;
+  font-size: 3.2vw;
+  letter-spacing: 0.8px;
   text-align: center;
 }
 
@@ -125,6 +128,7 @@ a {
 
 #status {
   letter-spacing: 1px;
+  font-family: monospace;
   font-size: 12px;
   margin-top: 20px;
 }

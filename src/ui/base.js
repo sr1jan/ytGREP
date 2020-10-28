@@ -5,7 +5,6 @@ let loader = document.getElementById("loader");
 let loadTranscript = document.getElementById("load");
 let capsArr = [];
 
-
 // retreive transcript from local storage if available
 new Promise(function(resolve, reject){
   chrome.tabs.query({active:true, currentWindow: true},
@@ -36,6 +35,7 @@ new Promise(function(resolve, reject){
     console.log(error)
   }
 );
+
 
 // triggered on search
 form.onsubmit = function() {
@@ -160,7 +160,7 @@ function createControlsNode(data){
 
   ctltxt.id = "ctltxt"
 
-  document.body.style.height = "260px";
+  document.body.style.height = "265px";
   controls.append(ctltxt, ctlbtns, ctlnum);
 }
 
@@ -175,9 +175,9 @@ function makeCtlFunctional(data){
   prev.addEventListener("click", function(){
     if(idx <= 0) return;
     --idx;
-    ctltxt.innerText = data[idx][1];
+    ctltxt.innerHTML = data[idx][1];
     ctlnum.innerText = `${idx+1}/${data.length}`
-    if(media.innerText === "play"){
+    if(media.innerHTML === "play"){
       media.innerText = "pause";
     }
     sendTimeToPlayer(data[idx][0]);
@@ -185,7 +185,7 @@ function makeCtlFunctional(data){
   next.addEventListener("click", function(){
     if(idx >= data.length - 1) return;
     ++idx;
-    ctltxt.innerText = data[idx][1];
+    ctltxt.innerHTML = data[idx][1];
     ctlnum.innerText = `${idx+1}/${data.length}`
     if(media.innerText === "play"){
       media.innerText = "pause";
@@ -202,7 +202,7 @@ function makeCtlFunctional(data){
     }
   });
 
-  ctltxt.innerText = data[0][1];
+  ctltxt.innerHTML = data[0][1];
   ctlnum.innerText = `${idx+1}/${data.length}`
   sendTimeToPlayer(data[idx][0]);
 }
@@ -210,9 +210,12 @@ function makeCtlFunctional(data){
 async function ytGrep(query){
   let results = []
   query = query.toLowerCase();
+  let highlight = function(q) {return `<span style='color: #fff'>${q}</span>`}
   for(i=0; i<capsArr.length; ++i){
     if(capsArr[i][1] === undefined) continue;
     if(new RegExp(`\\b${query}\\b`).test(capsArr[i][1].toLowerCase())) {
+      let regEx = new RegExp(query, "ig"); //case insensitive
+      capsArr[i][1] = capsArr[i][1].replace(regEx, highlight(query));
       results.push(capsArr[i]);
     }
   }
