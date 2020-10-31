@@ -5,7 +5,7 @@
 <p align="center">A simple chrome extension to search for words or sentences used in a youtube video.<p>
 
 <p align="center">
-<img src="https://img.shields.io/chrome-web-store/v/fhbhmcchljbicaffpjnibgdphekbabbm?color=red" alt="Chrome Web Store">
+<a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm" target="_blank"><img src="https://img.shields.io/chrome-web-store/v/fhbhmcchljbicaffpjnibgdphekbabbm?color=red" alt="Chrome Web Store"></a>
 </p>
 
 ## TODO
