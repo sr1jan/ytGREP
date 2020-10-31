@@ -1,10 +1,8 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/sr1jan/ytGREP/master/images/promotional/1400x560.png" alt="ytGREP:promotional">
-</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WyeThCn8iCY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 A simple chrome extension to search for words or sentences used in a youtube video.
 
-[![Chrome Web Store](/assets/img/webstore.png?raw=True "Chrome Web Store")](https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm)
+[![Chrome Web Store](./assets/img/webstore.png "Chrome Web Store")](https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm)
 
 -----------------------------------
 
