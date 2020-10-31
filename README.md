@@ -2,8 +2,6 @@
   <img src="./images/promotional/1400x560.png" alt="ytGREP:promotional">
 </p>
 
-<hr>
-
 <p align="center">A simple chrome extension to search for words or sentences used in a youtube video.<p>
 
 <p align="center">
