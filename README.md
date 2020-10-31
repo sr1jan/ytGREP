@@ -1,8 +1,13 @@
-<h1 align="center" style="color:#FF0000;">ytGREP</h1>
-
 <p align="center">
   <img src="./images/promotional/1400x560.png" alt="ytGREP:promotional">
-  <p align="center">A simple chrome extension to search for words or sentences used in a youtube video.<p>
+</p>
+
+<hr>
+<br>
+
+<p align="center">A simple chrome extension to search for words or sentences used in a youtube video.<p>
+<p align="center">
+<img src="https://img.shields.io/chrome-web-store/v/fhbhmcchljbicaffpjnibgdphekbabbm" alt="Chrome Web Store">
 </p>
 
 ## TODO
