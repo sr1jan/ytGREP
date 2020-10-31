@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sr1jan/ytGREP/master/images/promotional/1400x560.png" alt="ytGREP:promotional">
+</p>
 
-You can use the [editor on GitHub](https://github.com/sr1jan/ytGREP/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<p align="center">A simple chrome extension to search for words or sentences used in a youtube video.<p>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<p align="center">
+<a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm" target="_blank"><img src="https://img.shields.io/chrome-web-store/v/fhbhmcchljbicaffpjnibgdphekbabbm?color=red" alt="Chrome Web Store"></a>
+</p>
 
-### Markdown
+## TODO
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Add support for Firefox
+- Work on feature requests from users
 
-```markdown
-Syntax highlighted code block
+## How to contribute
 
-# Header 1
-## Header 2
-### Header 3
+- Raise issue for bugs or feature requests [here](https://github.com/sr1jan/ytGREP/issues)
+- Submit a [PR](https://github.com/sr1jan/ytGREP/pulls) for collaboration
 
-- Bulleted
-- List
+## Screenshots
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sr1jan/ytGREP/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<p align="center">
+  <img width="640" height="400" src="https://raw.githubusercontent.com/sr1jan/ytGREP/master/images/screenshots/1.png" alt="ytGREP:Screenshot:notranscript">
+</p>
+<br>
+<p align="center">
+  <img width="640" height="400" src="https://raw.githubusercontent.com/sr1jan/ytGREP/master/images/screenshots/2.png" alt="ytGREP:Screenshot:transcriptloaded">
+</p>
+<br>
+<p align="center">
+  <img width="640" height="400" src="https://raw.githubusercontent.com/sr1jan/ytGREP/master/images/screenshots/3.png" alt="ytGREP:Screenshot:matchfound">
+</p>
+<br>
+<p align="center">
+  <img width="640" height="400" src="https://raw.githubusercontent.com/sr1jan/ytGREP/master/images/screenshots/4.png" alt="ytGREP:Screenshot:nomatch">
+</p>
+<br>

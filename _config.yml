@@ -2,3 +2,4 @@ theme: jekyll-theme-minimal
 title: ytGREP
 description: A simple chrome extension to search for words or sentences used in YouTube videos.
 show_downloads: true
+logo: /assets/img/logo.png
