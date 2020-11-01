@@ -11,6 +11,7 @@
 ## TODO
 
 - Add support for Firefox
+- Semantic search
 - Work on feature requests from users
 
 ## How to contribute
