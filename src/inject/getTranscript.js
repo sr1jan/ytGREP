@@ -4,34 +4,47 @@
   async function getTranscript() {
     // console.log('getTranscript ran!');
 
+    // check if transcript available using cc button
+    let ccbtn = document.getElementsByClassName('ytp-subtitles-button ytp-button')[0]
+    if(ccbtn.style.display === "none"){
+      window.postMessage({type: "CAPS", text: "No transcript available!", capsArr: []}, "*");
+      return;
+    }
+
     let dropDownArr = await document.getElementsByClassName('dropdown-trigger style-scope ytd-menu-renderer');
-    let more;
+    let more, pop;
     for(i=0; i<dropDownArr.length; ++i){
       let menu = await dropDownArr[i].getElementsByClassName('style-scope ytd-menu-renderer')[0];
       if(menu !== undefined && menu.iconName_ === "more"){
         more = menu;
-        break;
+
+        // open dropdown
+        await more.click();
+
+        // console.log(i, more)
+
+        // check if transcript present
+        let popArr = await document.getElementsByClassName('style-scope ytd-menu-service-item-renderer')
+        for(j=0; j<popArr.length; ++j){
+          if(popArr[j]!== undefined && popArr[j].innerText === "Open transcript"){
+            pop = popArr[j];
+            break;
+          }
+        }
+
+        // close dropdown
+        await more.click();
+
+        // transcript available
+        if(pop !== undefined){
+          break;
+        }
+
       }
     }
-
-    // console.log(more);
-
-    await more.click();
-
-    let popArr = await document.getElementsByClassName('style-scope ytd-menu-service-item-renderer')
-    let pop;
-    for(i=0; i<popArr.length; ++i){
-      if(popArr[i]!== undefined && popArr[i].innerText === "Open transcript"){
-        pop = popArr[i];
-        break;
-      }
-    }
-
-    // console.log(pop);
 
     // no transcript
     if(pop === undefined){
-      await more.click();
       window.postMessage({type: "CAPS", text: "No transcript available!", capsArr: []}, "*");
       return;
     };
