@@ -6,25 +6,16 @@
 
 <p align="center">
   <a href="#" target="_blank"><img src="https://img.shields.io/github/manifest-json/v/sr1jan/ytGREP/master?filename=src%2Fmanifest.json&label=version" alt="Version"></a>
-
   <a href="https://github.com/sr1jan/ytGREP/issues" target="_blank"><img src="https://img.shields.io/github/issues/sr1jan/ytGREP" alt="Issues"></a>
-
   <a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm/reviews" target="_blank"><img src="https://img.shields.io/chrome-web-store/rating/fhbhmcchljbicaffpjnibgdphekbabbm" alt="Ratings"></a>
 </p>
 
-<div style="display:flex; flex-direction: row; padding:6px 0px; align-items: center; justify-content: center">
-  <div style="flex:50%; padding: 5px;">
-    <p align="center">
-      <a href="https://www.producthunt.com/posts/ytgrep?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-ytgrep" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=273899&theme=light" alt="ytGREP - grep youtube videos like a word doc | Product Hunt" style="width:70%;"/></a>
-    </p>
-  </div>
+<br>
 
-  <div style="flex:50%; padding: 5px;">
-    <p align="center">
-      <a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm" target="_blank"><img src="https://raw.githubusercontent.com/sr1jan/ytGREP/gh-pages/assets/images/webstore.png" alt="Chrome Web Store" style="width:70%" /></a>
-    </p>
-  </div>
-</div>
+<p align="center">
+  <a href="https://www.producthunt.com/posts/ytgrep?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-ytgrep" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=273899&theme=light" alt="ytGREP - grep youtube videos like a word doc | Product Hunt" style="width:50%;"/></a>
+  <a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm" target="_blank"><img src="https://raw.githubusercontent.com/sr1jan/ytGREP/gh-pages/assets/images/webstore.png" alt="Chrome Web Store" style="width:50%" /></a>
+</p>
 
 ## TODO
 
