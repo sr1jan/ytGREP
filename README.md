@@ -13,8 +13,8 @@
 <br>
 
 <p align="center">
-  <a href="https://www.producthunt.com/posts/ytgrep?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-ytgrep" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=273899&theme=light" alt="ytGREP - grep youtube videos like a word doc | Product Hunt" style="width:50%;"/></a>
-  <a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm" target="_blank"><img src="https://raw.githubusercontent.com/sr1jan/ytGREP/gh-pages/assets/images/webstore.png" alt="Chrome Web Store" style="width:50%" /></a>
+  <a href="https://www.producthunt.com/posts/ytgrep?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-ytgrep" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=273899&theme=light" alt="ytGREP - grep youtube videos like a word doc | Product Hunt"></a>
+  <a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm" target="_blank"><img src="https://raw.githubusercontent.com/sr1jan/ytGREP/gh-pages/assets/images/webstore.png" alt="Chrome Web Store"></a>
 </p>
 
 ## TODO
