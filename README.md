@@ -5,9 +5,9 @@
 <p align="center">A simple chrome extension to search for words or sentences used in a youtube video.</p>
 
 <p align="center">
-  <a href="" target="_blank"><img src="https://img.shields.io/github/manifest-json/v/sr1jan/ytGREP/master?filename=src%2Fmanifest.json&label=version" alt="Version"></a>
+  <a href="https://github.com/sr1jan/ytGREP/releases" target="_blank"><img src="https://img.shields.io/github/manifest-json/v/sr1jan/ytGREP/master?filename=src%2Fmanifest.json&label=version" alt="Version"></a>
   <a href="https://github.com/sr1jan/ytGREP/issues" target="_blank"><img src="https://img.shields.io/github/issues/sr1jan/ytGREP" alt="Issues"></a>
-  <a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm/reviews" target="_blank"><img src="https://img.shields.io/chrome-web-store/rating/fhbhmcchljbicaffpjnibgdphekbabbm" alt="Ratings"></a>
+  <a href="https://chrome.google.com/webstore/detail/ytgrep/fhbhmcchljbicaffpjnibgdphekbabbm/reviews" target="_blank"><img src="https://img.shields.io/chrome-web-store/stars/fhbhmcchljbicaffpjnibgdphekbabbm" alt="Ratings"></a>
 </p>
 
 <br>
