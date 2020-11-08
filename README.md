@@ -31,6 +31,12 @@
 - Raise issue for bugs or feature requests [here](https://github.com/sr1jan/ytGREP/issues)
 - Submit a [PR](https://github.com/sr1jan/ytGREP/pulls) for collaboration
 
+## Architecture
+
+<p align="center">
+  <img src="./images/ytGREPArchitecture.png" alt="ytGREP:Architecture">
+</p>
+
 ## Screenshots
 
 <p align="center">
