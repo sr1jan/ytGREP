@@ -1,6 +1,9 @@
 // init
 console.log('ytGREP extension loaded!');
 
+// message to background.js to setIcon
+chrome.runtime.sendMessage({type:'showPageAction'});
+
 // receive from webpage via window
 // transmit to extension via runtime
 window.addEventListener("message", function(event) {
