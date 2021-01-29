@@ -12,7 +12,7 @@ const default_rule = {
   actions: [ new chrome.declarativeContent.ShowPageAction() ]
 }
 
-chrome.runtime.onInstalled.addListener(function(details) {
+chrome.runtime.onInstalled.addListener(function() {
   console.log('ytGrep installed successfully!');
 
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
