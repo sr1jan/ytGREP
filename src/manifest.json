@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "ytGREP",
-  "version": "1.3",
+  "version": "1.4",
   "description": "Search for words or sentences in youtube videos",
   "author": "Srijan Singh",
   "homepage_url": "https://github.com/sr1jan/ytGREP",
@@ -14,18 +14,20 @@
   },
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
-  "web_accessible_resources": ["inject/getTranscript.js", "inject/ytPlayer.js"],
+  "web_accessible_resources": [{
+    "resources": ["inject/getTranscript.js", "inject/ytPlayer.js"],
+    "matches": ["*://www.youtube.com/*"]
+  }],
   "content_scripts": [
    {
-     "matches": ["*://www.youtube.com/*"],
+     "matches": ["https://www.youtube.com/watch*"],
      "js": ["contentScript.js"],
      "run_at": "document_idle"
    }
   ],
-  "page_action": {
+  "action": {
     "default_popup": "ui/index.html",
     "default_icon": {
       "16": "assets/icons/ytGrep_inactive16.png",
