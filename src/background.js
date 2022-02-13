@@ -14,7 +14,15 @@ const default_rule = {
       },
     }),
   ],
-  actions: [new chrome.declarativeContent.ShowAction()],
+  actions: [
+    new chrome.declarativeContent.ShowAction(),
+    new chrome.declarativeContent.SetIcon({
+      path: {
+        16: "./assets/icons/ytGrep16.png",
+        24: "./assets/icons/ytGrep24.png",
+      },
+    }),
+  ],
 };
 
 chrome.runtime.onInstalled.addListener(function () {
@@ -24,34 +32,6 @@ chrome.runtime.onInstalled.addListener(function () {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
     chrome.declarativeContent.onPageChanged.addRules([default_rule]);
   });
-});
-
-// setIcon when on youtube.com
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.type === "showPageAction") {
-    console.log("[YTGREP::showPageAction] init");
-    chrome.declarativeContent.onPageChanged.getRules(
-      ["enable_action"],
-      (rules) => {
-        if (!rules[0]) {
-          console.log("enable_action rule was not set, adding now.");
-          chrome.declarativeContent.onPageChanged.removeRules(
-            undefined,
-            function () {
-              chrome.declarativeContent.onPageChanged.addRules([default_rule]);
-            }
-          );
-        }
-      }
-    );
-    chrome.action.setIcon({
-      tabId: sender.tab.id,
-      path: {
-        16: "./assets/icons/ytGrep16.png",
-        24: "./assets/icons/ytGrep24.png",
-      },
-    });
-  }
 });
 
 chrome.tabs.onRemoved.addListener(function (tabId) {
