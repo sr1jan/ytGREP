@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ytGREP",
-  "version": "1.4",
+  "version": "1.4.1",
   "description": "Search for words or sentences in youtube videos",
   "author": "Srijan Singh",
   "homepage_url": "https://github.com/sr1jan/ytGREP",
