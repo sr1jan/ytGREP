@@ -10,8 +10,11 @@ window.addEventListener(
     if (event.source != window) return;
 
     if (event.data.type && event.data.type === "CAPS") {
-      // console.log("Message from webpage: " + event.data.text);
-      if (typeof chrome.app.isInstalled !== "undefined") {
+      // console.log(
+      //   "Message from webpage: " + event.data.text,
+      //   event.data.capsArr
+      // );
+      if (chrome.runtime?.id) {
         chrome.runtime.sendMessage(
           {
             type: "CAPS",

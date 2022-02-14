@@ -29,9 +29,12 @@ chrome.runtime.onInstalled.addListener(function () {
   console.log("ytGrep installed successfully!");
   chrome.action.disable();
 
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-    chrome.declarativeContent.onPageChanged.addRules([default_rule]);
-  });
+  chrome.declarativeContent.onPageChanged.removeRules(
+    undefined,
+    function callback() {
+      chrome.declarativeContent.onPageChanged.addRules([default_rule]);
+    }
+  );
 });
 
 chrome.tabs.onRemoved.addListener(function (tabId) {

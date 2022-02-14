@@ -12,7 +12,7 @@
     "48": "assets/icons/ytGrep48.png",
     "128": "assets/icons/ytGrep128.png"
   },
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab", "declarativeContent", "storage", "scripting", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
@@ -22,7 +22,7 @@
   }],
   "content_scripts": [
    {
-     "matches": ["https://www.youtube.com/watch*"],
+     "matches": ["https://www.youtube.com/*"],
      "js": ["contentScript.js"],
      "run_at": "document_idle"
    }

@@ -48,21 +48,32 @@ form.onsubmit = function () {
 };
 
 // triggered on load transcript
-loadTranscript.onclick = function () {
+loadTranscript.onclick = async function () {
   status.style.display = "none";
   loader.style.display = "block";
   let script = chrome.runtime.getURL("inject/getTranscript.js");
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.scripting.executeScript(tabs[0].id, {
-      code:
-        "document.body.appendChild(document.createElement('script')).src = " +
-        `'${script}'`,
-    });
-  });
+  // function injectScript(src) {
+  //   let script = document.createElement("script");
+  //   script.src = src;
+  //   script.id = "getTranscript";
+  //   document.body.appendChild(script);
+  // }
+  const tab = await getCurrentTab();
+  chrome.scripting.executeScript(
+    {
+      target: { tabId: tab.id },
+      files: ["inject/getTranscript.js"],
+    },
+    () => {}
+  );
 };
 
 // listening to content script
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(async function (
+  request,
+  sender,
+  sendResponse
+) {
   if (request.status !== "") {
     loader.style.display = "none";
     status.style.display = "block";
@@ -74,10 +85,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       disableLoadTranscript();
       activateForm();
       capsArr = request.capsArr;
-      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.get(tabs[0].id, function (tab) {
-          storeTranscriptLocal(capsArr, tab.id, tab.title);
-        });
+      const tab = await getCurrentTab();
+      chrome.tabs.get(tab.id, function (tab) {
+        storeTranscriptLocal(capsArr, tab.id, tab.title);
       });
     } else {
       console.log("No video transcript found!");
@@ -91,6 +101,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 // *********************
 //       HELPERS
 // *********************
+
+async function getCurrentTab() {
+  let queryOptions = { active: true, currentWindow: true };
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
 
 function disableLoadTranscript() {
   loadTranscript.onclick = "";
